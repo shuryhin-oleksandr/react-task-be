@@ -8,5 +8,8 @@ class Todo(models.Model):
     description = models.TextField(max_length=200, validators=[MinLengthValidator(3)])
     created_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        ordering = ['-created_at']
+
     def __str__(self):
         return self.name
